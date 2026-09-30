@@ -1,0 +1,17 @@
+    1  chown root:root /home/user1/mysetuid_cat
+    2  chmod 4755 /home/user1/mysetuid_cat
+    3  su - user1
+    4  stat /home/user1/mysetuid_cat > /root/stat_setuid.out
+    5  ls -l /home/user1/mysetuid_cat >> /root/stat_setuid.out
+    6  cp /bin/chown /home/user1/mysetcap_chown
+    7  setcap cap_chown+ep ?home/user1/mysercap_chown
+    8  setcap cap_chown+ep /home/user1/mysercap_chown
+    9  setcap cap_chown+ep /home/user1/mysetcap_chown
+   10  su - user1
+   11  getcap /home/user1/mysetcap_chown > /root/getcap.out
+   12  stat /home/user1/mysetcap_chown >> /root/stat_cap/out
+   13  stat /home/user1/mysetcap_chown >> /root/stat_cap.out
+   14  visudo
+   15  su - user1
+   16  echo "Мой уникальный номер: 372722"
+   17  history > /root/history.out
